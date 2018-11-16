@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mytatis.mapper.RoleMapper">
+	<select id="getRole" parameterType="long" resultType="role">
+		select id, rolename as roleName, note from t_role where id = #{id}
+	</select>
+	<insert id="insertRole" parameterType="role">
+		insert into t_role(rolename,note,id) values (#{roleName},#{note},#{id})
+	</insert>
+	<delete id="deleteRole" parameterType="long">
+		delete from t_role where id = #{id}
+	</delete>
+</mapper>

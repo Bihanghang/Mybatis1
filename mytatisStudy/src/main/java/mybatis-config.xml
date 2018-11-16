@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+		"-//mybatis.org//DTD Config 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties">
+		<!-- <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:XE"/>
+		<property name="username" value="test"/>
+		<property name="password" value="test"/> -->
+	</properties>
+	
+	<typeAliases>
+		<!-- <typeAlias type="com.briup.pojo.Student" alias="Student" />
+		<typeAlias type="com.briup.pojo.Book" alias="Book" />
+		<package name="com.briup.pojo"/> -->
+		<typeAlias alias="role" type="mytatis.pojo.Role"></typeAlias>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC">
+				<property name="autoCommit" value="false"/>
+			</transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" /> 
+				<property name="url" value="${url}" /> 
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="mytatis/mapper/roleMapper.xml"></mapper>
+	</mappers>
+</configuration>
