@@ -11,11 +11,15 @@
 	</properties>
 	
 	<typeAliases>
-		<!-- <typeAlias type="com.briup.pojo.Student" alias="Student" />
-		<typeAlias type="com.briup.pojo.Book" alias="Book" />
-		<package name="com.briup.pojo"/> -->
-		<typeAlias alias="role" type="mytatis.pojo.Role"></typeAlias>
+		<package name="mytatis.pojo"/>
 	</typeAliases>
+	<typeHandlers>
+		<typeHandler jdbcType="VARCHAR" javaType="string"
+		handler="mytatis.handler.MyStringTypeHandler"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" 
+			javaType="mytatis.enum2.Sex"
+		/>
+	</typeHandlers>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC">
@@ -31,5 +35,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="mytatis/mapper/roleMapper.xml"></mapper>
+		<mapper resource="mytatis/mapper/userMapper.xml"></mapper>
 	</mappers>
 </configuration>

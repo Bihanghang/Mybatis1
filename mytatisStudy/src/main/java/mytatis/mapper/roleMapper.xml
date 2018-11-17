@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mytatis.mapper.RoleMapper">
-	<select id="getRole" parameterType="long" resultType="role">
+	<resultMap type="role" id="roleMap">
+		<!-- 定义结果类型转化器标识，才能使用类型转换器 -->
+		<id column="id" property="id" javaType="long" jdbcType="BIGINT" />
+		<result column="rolename" property="roleName" javaType="string" jdbcType="VARCHAR" />
+		<result column="note" property="note" typeHandler="mytatis.handler.MyStringTypeHandler" />
+	</resultMap>
+	<select id="getRole" parameterType="long" resultMap="roleMap">
 		select id, rolename as roleName, note from t_role where id = #{id}
+	</select>
+	<select id="findRole" parameterType="string" resultMap="roleMap">
+		select id, rolename as roleName, note from t_role 
+		where rolename like concat('%',#{roleName javaType=string,jdbcType=VARCHAR,
+			typeHandler=mytatis.handler.MyStringTypeHandler},'%') 
 	</select>
 	<insert id="insertRole" parameterType="role">
 		insert into t_role(rolename,note,id) values (#{roleName},#{note},#{id})

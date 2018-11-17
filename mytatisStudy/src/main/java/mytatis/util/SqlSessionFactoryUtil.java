@@ -24,8 +24,7 @@ public class SqlSessionFactoryUtil {
 		try {
 			inputStream = Resources.getResourceAsStream(resource);
 		} catch (IOException e) {
-			System.out.println("葫芦娃");
-			/*Logger.getLogger(SqlSessionFactoryUtil.class.getName()).log(Level.SEVERE,null,e);*/
+			Logger.getLogger(SqlSessionFactoryUtil.class.getName()).log(Level.SEVERE,null,e);
 		}
 		synchronized (CLASS_LOCK) {
 			if (sqlSessionFactory == null) {

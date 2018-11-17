@@ -1,5 +1,8 @@
 package mytatis.pojo;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("role")
 public class Role {
 	@Override
 	public String toString() {

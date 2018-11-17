@@ -52,11 +52,17 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
-
+		<!-- 连接Oracle的jar包  -->
 		<dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
             <version>10.2.0.1.0</version>
         </dependency>
+        <!-- 连接MySQL的jar包 -->
+        <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.30</version>
+		</dependency>
   </dependencies>
 </project>

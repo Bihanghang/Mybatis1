@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mytatis.mapper.UserMapper">
+	<resultMap type="mytatis.pojo.User" id="userMap">
+		<!-- 定义结果类型转化器标识，才能使用类型转换器 -->
+		<id column="id" property="id" javaType="long" jdbcType="BIGINT" />
+		<result column="user_name" property="userName" />
+		<result column="cnname" property="cnName" />
+		<result column="birthday" property="birthday" />
+		<result column="sex" property="sex" typeHandler=
+		"org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+		<result column="email" property="email" />
+		<result column="mobile" property="mobile" />
+		<result column="note" property="note" />
+	</resultMap>
+	<select id="getUser" parameterType="long" resultMap="userMap">
+		select id, user_name as userName, cnname,birthday,sex,email,mobile,
+		note from t_user where id = #{id}
+	</select>
+	<insert id="insert" parameterType="mytatis.pojo.User">
+		insert into t_user(id,user_name,cnname,birthday,sex,email,mobile,note) values 
+		(#{id},#{userName},#{cnName},#{birthday},
+		#{sex, typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},
+		#{email},#{mobile},#{note})
+	</insert>
+</mapper>

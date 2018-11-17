@@ -13,12 +13,14 @@ public class Chapter2Main
 	try {
 		sqlSession = SqlSessionFactoryUtil.openSqlSession();
 		RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
-		Role role = new Role();
-		role.setId(101L);
-		role.setNote("哈哈哈");
-		role.setRoleName("男神");
-		roleMapper.insertRole(role);
-		sqlSession.commit();
+		Role role = roleMapper.findRole("男神");
+		/*Role role2 = new Role();
+		role2.setId(101L);
+		role2.setRoleName("男神");
+		role2.setNote("我是葫芦娃");
+		roleMapper.insertRole(role2);
+		sqlSession.commit();*/
+		System.out.println(role.toString());
 	} catch (Exception e) {
 		System.err.println(e.getMessage());
 		sqlSession.rollback();
