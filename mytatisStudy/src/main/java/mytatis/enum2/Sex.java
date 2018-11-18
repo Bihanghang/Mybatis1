@@ -28,4 +28,8 @@ public enum Sex {
 		}
 		return null;
 	}
+	public static void main(String[] args) {
+		System.out.println(Sex.MALE.name());
+		System.out.println(Sex.valueOf("1"));
+	}
 }

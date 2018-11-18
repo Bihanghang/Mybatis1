@@ -8,7 +8,7 @@
 		<result column="cnname" property="cnName" />
 		<result column="birthday" property="birthday" />
 		<result column="sex" property="sex" typeHandler=
-		"org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+		"org.apache.ibatis.type.EnumTypeHandler"/>
 		<result column="email" property="email" />
 		<result column="mobile" property="mobile" />
 		<result column="note" property="note" />
@@ -20,7 +20,7 @@
 	<insert id="insert" parameterType="mytatis.pojo.User">
 		insert into t_user(id,user_name,cnname,birthday,sex,email,mobile,note) values 
 		(#{id},#{userName},#{cnName},#{birthday},
-		#{sex, typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},
+		#{sex, typeHandler=org.apache.ibatis.type.EnumTypeHandler},
 		#{email},#{mobile},#{note})
 	</insert>
 </mapper>

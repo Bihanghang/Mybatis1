@@ -21,7 +21,7 @@ public class Chapter3Main {
 		user.setCnName("西看看");
 		user.setMobile("1212121");
 		user.setEmail("654454");
-		user.setSex(Sex.MALE);
+		user.setSex(Sex.FEMALE);
 		user.setNote("ljlj");
 		user.setUserName("葫芦娃");
 		userMapper.insert(user);

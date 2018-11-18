@@ -13,6 +13,15 @@ public class User {
 	private String email;
 	private String mobile;
 	private String note;
+	
+	
+	
+	public Sex getSex() {
+		return sex;
+	}
+	public void setSex(Sex sex) {
+		this.sex = sex;
+	}
 	public long getId() {
 		return id;
 	}
@@ -37,12 +46,7 @@ public class User {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-	public Sex getSex() {
-		return sex;
-	}
-	public void setSex(Sex sex) {
-		this.sex = sex;
-	}
+
 	public String getEmail() {
 		return email;
 	}

@@ -11,7 +11,7 @@ create table t_user (
   user_name varchar(255) NOT NULL,
   note varchar(255) NOT NULL,
   id bigint NOT NULL,
-  sex char  NOT NULL,
+  sex int  NOT NULL,
   cnname varchar(255) NOT NULL,
   birthday date NOT NULL,
   mobile varchar(255) NOT NULL,
