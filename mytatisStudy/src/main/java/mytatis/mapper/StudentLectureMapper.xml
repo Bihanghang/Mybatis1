@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mytatis.mapper.StudentLectureMapper" >
+  <resultMap id="studentLectureMap" type="mytatis.pojo.StudentLecture" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="grade" property="grade" jdbcType="DECIMAL" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <association property="lecture" column="lecture_id" 
+    	select="mytatis.mapper.LectureMapper.getLecture" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, student_id, lecture_id, grade, note
+  </sql>
+  <select id="findStudentLectureByStuId" resultMap="studentLectureMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_student_lecture
+    where student_id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>

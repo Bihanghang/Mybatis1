@@ -9,7 +9,10 @@
 		<property name="username" value="test"/>
 		<property name="password" value="test"/> -->
 	</properties>
-	
+	<settings>
+		<!-- <setting name="autoMappingBehavior" value="NONE"/>  --> 
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
 	<typeAliases>
 		<package name="mytatis.pojo"/>
 	</typeAliases>
@@ -34,7 +37,8 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="mytatis/mapper/roleMapper.xml"></mapper>
-		<mapper resource="mytatis/mapper/userMapper.xml"></mapper>
+		<!-- <mapper resource="mytatis/mapper/roleMapper.xml"></mapper>
+		<mapper resource="mytatis/mapper/userMapper.xml"></mapper> -->
+		<package name="mytatis.mapper" />
 	</mappers>
 </configuration>
